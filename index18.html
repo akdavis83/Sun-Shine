@@ -1,0 +1,53 @@
+<base href="https://docs.lume.io/examples/texture-shadow/example.html" />
+<script src="../../importmap.js"></script>
+<link rel="icon" href="https://fav.farm/✅" />
+<style>
+	html,
+	body {
+		height: 100%;
+		margin: 0;
+	}
+</style>
+
+
+   <div style="text-align: center;">
+    <h1 style="color: orange;">Malachi 4:2 But unto you that fear my name shall the Sun of righteousness arise with healing in his wings; and ye shall go forth, and grow up as calves of the stall.</h1>
+</div>
+
+
+<lume-scene
+	webgl
+	physically-correct-lights
+	style="background: #999"
+	shadow-mode="pcfsoft"
+	fog-mode="linear"
+	fog-near="800"
+	fog-far="2000"
+	fog-color="#999"
+>
+	<lume-ambient-light intensity="0.8"></lume-ambient-light>
+
+	<lume-point-light id="light" position="200 -200 200" intensity="350">
+		<lume-sphere size="10 10 10" cast-shadow="false" receive-shadow="false" has="basic-material"></lume-sphere>
+	</lume-point-light>
+
+	<lume-camera-rig vertical-angle="40" min-vertical-angle="1"></lume-camera-rig>
+
+	<!-- The trick is to use alpha-test to drop pixels that have an opacity less than the given value. -->
+	<lume-plane
+		receive-shadow="false"
+		texture="../../examples/mini-galaxy/sun.png"
+		alpha-test="0.1"
+		opacity="0.99999"
+		size="100 100"
+		mount-point="0.5 1"
+		sidedness="double"
+	></lume-plane>
+
+	<lume-plane color="white" size="10000 10000" rotation="90 0 0" mount-point="0.5 0.5"></lume-plane>
+</lume-scene>
+
+<script type="module">
+	import 'lume'
+	light.position = (x, y, z, t) => [100 * Math.sin(t * 0.001)]
+</script>
