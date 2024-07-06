@@ -1,20 +1,36 @@
 <base href="https://docs.lume.io/examples/texture-shadow/example.html" />
 <script src="../../importmap.js"></script>
-<link rel="icon" href="https://fav.farm/✅" />
+<link rel="icon" href="https://fav.farm/🔥" />
+<title>Sun-Shine</title>
 <style>
 	html,
 	body {
 		height: 100%;
 		margin: 0;
 	}
+	.overlay-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10vh;
+        z-index: 999; /* make sure it's on top of all other elements */
+        text-align: center;
+        font-size: 48px;
+        ; /* adjust the color to your liking */
+        margin-top: 50px;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+      }
 </style>
 
 
-   <div style="text-align: center;">
-    <h1 style="color: orange;">Malachi 4:2 But unto you that fear my name shall the Sun of righteousness arise with healing in his wings; and ye shall go forth, and grow up as calves of the stall.</h1>
-</div>
+   
 
-
+<div class="overlay-text" style="color: orange;"><a href="https://akdavis83.github.io/Sun-Shine2/">Malachi 4:2 But unto you that fear my name shall the Sun of righteousness arise with healing in his wings; and ye shall go forth, and grow up as calves of the stall.</a></div>
 <lume-scene
 	webgl
 	physically-correct-lights
